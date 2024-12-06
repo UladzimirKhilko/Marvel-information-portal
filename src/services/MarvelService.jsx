@@ -25,16 +25,18 @@ class MarvelService {
 
     _transformCharacter = (char) => {
         if (!char.description) {
-            char.description = 'There is no data available for this character.'
+            char.description = 'There is no description for this character.'
         } else if (char.description.length > 200) {
             char.description = char.description.substr(0, 197) + "...";
         }
         return {
+            id: char.id,
             name: char.name,
             description: char.description,
             thumbnail: char.thumbnail.path+'.'+char.thumbnail.extension,
             homepage: char.urls[0].url,
             wiki: char.urls[1].url,
+            comics: char.comics.items,
         }
     }
 }
