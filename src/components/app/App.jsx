@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable react/react-in-jsx-scope */
 import { useState } from 'react';
 
@@ -6,6 +7,7 @@ import RandomChar from '../randomChar/RandomChar.jsx';
 import CharList from '../charList/CharList.jsx';
 import CharInfo from '../charInfo/CharInfo.jsx';
 import ErrorBoundary from '../errorBoundary/ErrorBoundary.jsx';
+import ComicsList from '../comicsList/ComicsList.jsx';
 
 import decoration from '../../resources/img/vision.png';
 
@@ -20,7 +22,8 @@ const App = () => {
     <div className="app">
       <AppHeader />
       <main>
-        <ErrorBoundary>
+        
+        {/* <ErrorBoundary>
           <RandomChar />
         </ErrorBoundary>
         <div className="char__content">
@@ -30,7 +33,8 @@ const App = () => {
           <ErrorBoundary>
             <CharInfo charId={selectedChar} />
           </ErrorBoundary>
-        </div>
+        </div> */}
+        <ComicsList/>
         <img className="bg-decoration" src={decoration} alt="vision" />
       </main>
     </div>
