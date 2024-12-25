@@ -1,43 +1,28 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/react-in-jsx-scope */
-import { useState } from 'react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 import AppHeader from '../appHeader/AppHeader.jsx';
-import RandomChar from '../randomChar/RandomChar.jsx';
-import CharList from '../charList/CharList.jsx';
-import CharInfo from '../charInfo/CharInfo.jsx';
-import ErrorBoundary from '../errorBoundary/ErrorBoundary.jsx';
-import ComicsList from '../comicsList/ComicsList.jsx';
-
-import decoration from '../../resources/img/vision.png';
+import {MainPage, ComicsPage} from '../pages'
 
 const App = () => {
-  const [selectedChar, setChar] = useState(null);
-
-  const onCharSelected = (id) => {
-    setChar(id);
-  };
-
+  
   return (
-    <div className="app">
-      <AppHeader />
-      <main>
-        
-        {/* <ErrorBoundary>
-          <RandomChar />
-        </ErrorBoundary>
-        <div className="char__content">
-          <ErrorBoundary>
-            <CharList onCharSelected={onCharSelected} />
-          </ErrorBoundary>
-          <ErrorBoundary>
-            <CharInfo charId={selectedChar} />
-          </ErrorBoundary>
-        </div> */}
-        <ComicsList/>
-        <img className="bg-decoration" src={decoration} alt="vision" />
-      </main>
-    </div>
+    <Router>
+      <div className="app">
+        <AppHeader />
+        <main>
+          <Switch>
+            <Route exact path="/">
+              <MainPage/>
+            </Route>
+            <Route exact path="/comics">
+              <ComicsPage/>
+            </Route>
+          </Switch>
+        </main>
+      </div>
+    </Router>
   );
 };
 
